@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   extend Devise::Models
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
 
@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
   has_many :accounts
   has_one :wallet
   has_many :transactions
+  has_many :user_groups
+  has_many :groups, through: :user_groups
+  has_many :payers
+  has_many :group_expenses, through: :payers
 end

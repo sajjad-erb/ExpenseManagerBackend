@@ -5,10 +5,10 @@ class Api::V1::TransactionsController < ApplicationController
   # GET /transactions
   def index
     @transactions = current_user.transactions.paginate(:page => params[:page])
-    # @transactions = current_user.transactions.all
+    # @transactions = current_user.transaction.all
     authorize @transactions
     render json: @transactions
-  end
+  end 
 
   # GET /transactions/1
   def show
@@ -22,7 +22,7 @@ class Api::V1::TransactionsController < ApplicationController
     authorize @transaction
     ActiveRecord::Base.transaction do
       do_transaction
-      @transaction.save!
+      @transaction.save
       raise if @transaction.errors.present? || @transaction.transfer_to&.errors&.present? || @transaction.transfer_from&.errors&.present?
       render json: @transaction, status: :created
     end
@@ -41,7 +41,8 @@ class Api::V1::TransactionsController < ApplicationController
       undo_transaction
       @transaction.assign_attributes(transaction_params)
       do_transaction
-      @transaction.save!
+      @transaction.save
+      raise if @transaction.errors.present? || @transaction.transfer_to&.errors&.present? || @transaction.transfer_from&.errors&.present?
       render json: @transaction
     end
   rescue
@@ -99,12 +100,12 @@ class Api::V1::TransactionsController < ApplicationController
 
   def do_transaction
     if @transaction.type == "Income"
-      @transaction.transfer_to.increment!(:balance, @transaction.amount)
+      @transaction.transfer_to.increment(:balance, @transaction.amount).save
     elsif @transaction.type == "BankTransfer"
-      @transaction.transfer_from.decrement!(:balance, @transaction.amount)
-      @transaction.transfer_to.increment!(:balance, @transaction.amount)
+      @transaction.transfer_from.decrement(:balance, @transaction.amount).save
+      @transaction.transfer_to.increment(:balance, @transaction.amount).save
     elsif @transaction.type == "Expense"
-      @transaction.transfer_from.decrement!(:balance, @transaction.amount)
+      @transaction.transfer_from.decrement(:balance, @transaction.amount).save
     end
   end
 
