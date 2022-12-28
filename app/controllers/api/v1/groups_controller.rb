@@ -15,12 +15,19 @@ class Api::V1::GroupsController < ApplicationController
     render json: @group
   end
 
+  def user_groups
+    @groups = current_user.groups.find(params[:id]).users
+    # @groups = Group.find(params[:id]).users
+
+    render json: @groups
+  end
+
   # POST /groups
   def create
     @group = current_user.groups.new(group_params)
     authorize @group
-
     if @group.save
+      current_user.user_groups.new(group_id: @group.id).save
       render json: @group, status: :created
     else
       render json: @group.errors, status: :unprocessable_entity
@@ -54,7 +61,7 @@ class Api::V1::GroupsController < ApplicationController
     def group_params
       params.require(:group).permit(
         :name,
-        payers_attributes: [
+        user_groups_attributes: [
           :user_id,
         ]
       )

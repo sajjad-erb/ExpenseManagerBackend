@@ -46,9 +46,9 @@ class Api::V1::GroupExpensesController < ApplicationController
   def group_expense_params
     params.require(:group_expense).permit(
       :amount,
-      :split,
-      :category,
       :group_id,
+      :category,
+      :split,
       payers_attributes: [
         :user_id,
         :paid,

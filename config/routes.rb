@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :transactions, :accounts, :wallets, :group_expenses, :groups
+      resources :transactions, :accounts, :wallets, :group_expenses
+      resources :groups do
+        member do
+          get "user_groups"
+        end
+      end
+      resources :users, only: [:index]
     end
   end
   mount_devise_token_auth_for "User", at: "auth"
