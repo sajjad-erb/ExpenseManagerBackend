@@ -80,5 +80,26 @@ Setup the database using
 
   gem 'pundit'
 ```
+## Design decision
+* Technologies: 
+  - `Rails` 
+  - `React`
+  - `Tailwind` 
+  - `PostgresQL`
+* Models
+  - User
+  - Account
+  - Transaction
+  - Wallet
+  - Group
+  - Group Expense
+* Deployment Environment
+  -  The system will be depolyed in the cloud
+* Maintenance and updates
+  - The system will be maintained and updated over time and 
+    new features will be added
 ## Schema design Design
 ![Scehma-design](https://i.imgur.com/Igw7tS6.png)
+## Business Rule
+* Expenses will be approved, reimbursed, and tracked, as well as any
+  specific policies or procedures that will be enforced by the system
