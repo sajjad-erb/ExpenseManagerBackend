@@ -1,8 +1,7 @@
 # README
 
-![Expense Manager Logo](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.whmcstech.com%2Fwhmcs-tech-expense-manager.html&psig=AOvVaw3ZZOary5zQckYiGlfh7w5a&ust=1672312375689000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCMjTuZuXnPwCFQAAAAAdAAAAABAD)
+![Expense-Manager-Logo](https://www.dovico.com/images/icons/icon-costing.png)
 # Application Name : Expense Manager 
-
 
 ## Ruby version
 ```ruby
@@ -24,8 +23,8 @@ A system that helps individuals or organizations track and manage their expenses
  ### Functionalities
  * `Dashboard` showing user's expenses throughout the month.
  * Keep track of every `transaction` type.
- * `Bank Transfer`, `Income`, `Expenses` are the transactions types
- * User can create `accounts` and `wallets`
+ * `Bank Transfer`, `Income`, `Expenses` are the transactions types.
+ * User can create `accounts` and `wallets`.
  * The app can automatically calculate the share of the `expense` for each user.
  * User can create many `groups` and add users in it.
  * Each user can add their expenses to the group.
@@ -82,4 +81,4 @@ Setup the database using
   gem 'pundit'
 ```
 ## Schema design Design
-![Scehma-design]([Imgur](https://imgur.com/uxCvz0g))
+![Scehma-design](https://i.imgur.com/Igw7tS6.png)
