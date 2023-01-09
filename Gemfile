@@ -30,20 +30,27 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-gem 'devise_token_auth'
+gem "devise_token_auth"
 
-gem 'rack-cors'
+gem "rack-cors"
 
-gem 'awesome_print'
+gem "awesome_print"
 
-gem 'pundit'
+gem "pundit"
 
-gem 'kaminari', '~> 0.16.3'
+gem "kaminari", "~> 0.16.3"
 
+gem "will_paginate", "~> 3.3"
 
-gem 'will_paginate', '~> 3.3'
+gem "devise_invitable", "~> 2.0.0"
 
-gem 'devise_invitable', '~> 2.0.0'
+gem "shoulda-matchers", "~> 4.0"
+
+gem "rails-controller-testing"
+
+gem "warden", "~> 1.2", ">= 1.2.6"
+
+gem 'devise'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -61,3 +68,7 @@ group :development do
   # gem "spring"
 end
 
+group :development, :test do
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+end

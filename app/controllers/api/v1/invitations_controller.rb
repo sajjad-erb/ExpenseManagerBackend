@@ -5,6 +5,7 @@ class Api::V1::InvitationsController < Devise::InvitationsController
   before_action :resource_from_invitation_token, only: [:edit, :update]
 
   def create
+    debugger
     User.invite!(invite_params, current_api_v1_user)
     render json: { success: ["User created."] }, status: :created
   end

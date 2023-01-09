@@ -89,7 +89,13 @@ GEM
       bcrypt (~> 3.0)
       devise (> 3.5.2, < 5)
       rails (>= 4.2.0, < 7.1)
+    diff-lcs (1.5.0)
     erubi (1.11.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -147,6 +153,10 @@ GEM
       activesupport (= 7.0.4)
       bundler (>= 1.15.0)
       railties (= 7.0.4)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -165,6 +175,25 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    rspec-core (3.12.0)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-mocks (3.12.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-rails (6.0.1)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.11)
+      rspec-expectations (~> 3.11)
+      rspec-mocks (~> 3.11)
+      rspec-support (~> 3.11)
+    rspec-support (3.12.0)
+    shoulda-matchers (4.5.1)
+      activesupport (>= 4.2.0)
     thor (1.2.1)
     timeout (0.3.0)
     tzinfo (2.0.5)
@@ -184,15 +213,21 @@ DEPENDENCIES
   awesome_print
   bootsnap
   debug
+  devise
   devise_invitable (~> 2.0.0)
   devise_token_auth
+  factory_bot_rails
   kaminari (~> 0.16.3)
   pg (~> 1.1)
   puma (~> 5.0)
   pundit
   rack-cors
   rails (~> 7.0.4)
+  rails-controller-testing
+  rspec-rails
+  shoulda-matchers (~> 4.0)
   tzinfo-data
+  warden (~> 1.2, >= 1.2.6)
   will_paginate (~> 3.3)
 
 RUBY VERSION

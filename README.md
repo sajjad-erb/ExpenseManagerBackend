@@ -77,7 +77,7 @@ Setup the database using
   gem 'will_paginate', '~> 3.3'
 
   gem 'devise_invitable', '~> 2.0.0'
-
+rails app:template LOCATION='https://railsbytes.com/script/z0gsLX'
   gem 'pundit'
 ```
 ## Design decision
